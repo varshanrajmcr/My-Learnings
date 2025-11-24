@@ -1,0 +1,51 @@
+Classes:
+Use case: Create reusable blueprints.
+
+class User { constructor(name){ this.name = name; } sayHi(){ console.log(this.name); } }
+new User("John").sayHi();
+
+
+Class Inheritance:
+Use case: Extend another class.
+
+class Animal{ eat(){console.log("eat");} }
+class Rabbit extends Animal{ jump(){console.log("jump");} }
+new Rabbit().eat();
+
+
+Static Properties and Methods:
+Use case: Belong to class, not instance.
+
+class User { static hello(){ console.log("Hello!"); } }
+User.hello();
+
+
+Private and Protected Properties and Methods:
+Use case: Hide internal details.
+
+class User { #name="John"; getName(){ return this.#name; } }
+console.log(new User().getName());
+
+
+Extending Built-in Classes:
+Use case: Add custom behavior to native types.
+
+class MyArray extends Array { last(){ return this[this.length-1]; } }
+console.log(new MyArray(1,2,3).last()); // 3
+
+
+Class Checking: instanceof:
+Use case: Verify object type.
+
+class User {}
+let u = new User();
+console.log(u instanceof User); // true
+
+
+Mixins:
+Use case: Add reusable methods to classes.
+
+let sayHi = { hi(){ console.log("Hi"); } };
+class User {}
+Object.assign(User.prototype, sayHi);
+new User().hi();
