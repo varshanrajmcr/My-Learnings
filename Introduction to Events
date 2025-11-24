@@ -1,0 +1,50 @@
+Introduction to Events:
+----------------------
+Events are signals that something happened — user interaction or browser action.
+
+<button onclick="alert('Clicked!')">Click me</button>
+Events are fired when users interact (click, type, scroll, etc.).
+
+Can listen using:
+HTML attribute - onclick="..."
+DOM property - elem.onclick = handler
+addEventListener() - modern & preferred
+
+Introduction to Browser Events:
+------------------------------
+Each event type (click, input, load, keydown, etc.) has an event object with details.
+
+button.addEventListener("click", function(event) {
+  alert(event.type);   // click
+  alert(event.target); // element clicked
+});
+
+Common event types:
+
+Mouse: click, dblclick, mousemove, mouseover, mousedown
+Keyboard: keydown, keyup
+Form: input, submit, change, focus
+Document: DOMContentLoaded, load
+Window: resize, scroll
+
+Event Bubbling and Capturing:
+----------------------------
+When an event happens on an element, it travels:
+
+Capturing phase - from root to target
+Bubbling phase - from target back to root
+
+elem.addEventListener("click", handler, true); // capture phase
+elem.addEventListener("click", handler, false); // bubble phase (default)
+
+Event Delegation:
+-----------------
+Attach one event listener on a parent instead of many on children.
+Why useful:
+Handles future dynamically-added elements.
+Saves memory (only one listener).
+Uses event bubbling.
+
+Browser Default Actions:
+-----------------------
+Some events have default browser behavior (e.g., links navigate, forms submit).
