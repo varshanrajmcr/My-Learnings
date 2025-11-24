@@ -1,0 +1,14 @@
+Prototypes, Inheritance:
+Use case: Share behavior between objects.
+
+let animal = {eat(){console.log("eat");}};
+let rabbit = Object.create(animal);
+rabbit.eat(); // eat
+
+
+Prototypal Inheritance:
+Use case: Create derived objects.
+
+let parent = {hello(){console.log("hi");}};
+let child = Object.create(parent);
+child.hello();
