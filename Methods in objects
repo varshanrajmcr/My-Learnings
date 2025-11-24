@@ -1,0 +1,127 @@
+Methods in Objects:
+------------------
+Use case: Organizing related data + behavior
+
+let user = {
+  name: "Alice",
+  age: 25,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+user.greet(); // Hello, my name is Alice
+
+
+Using this in Methods:
+---------------------
+Use case: Accessing object’s own data
+
+let user = {
+  name: "John",
+  age: 30,
+  sayHi() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+};
+
+user.sayHi(); // Hi, I'm John
+
+
+Reusing One Function Across Many Objects:
+-----------------------------------------
+Use case: Sharing one function for multiple objects
+
+function sayHi() {
+  console.log(`Hi, I'm ${this.name}`);
+}
+
+let user = { name: "John", f: sayHi };
+let admin = { name: "Admin", f: sayHi };
+
+user.f();   // Hi, I'm John
+admin.f();  // Hi, I'm Admin
+
+
+Using this Safely:
+-----------------
+Use case: Making methods flexible when objects are copied
+
+let user = {
+  name: "John",
+  sayHi() {
+    console.log(this.name);
+  }
+};
+
+let admin = user;
+user = null;
+admin.sayHi(); // John
+
+
+Arrow Functions Have No this:
+-----------------------------
+Use case: Preserving outer this in callbacks
+
+let user = {
+  name: "Ilya",
+  sayHi() {
+    setTimeout(() => {
+      console.log(this.name);
+    }, 1000);
+  }
+};
+
+user.sayHi(); // Ilya
+
+
+Object-Oriented Programming Pattern:
+------------------------------------
+Use case: Modeling real-world entities
+
+let car = {
+  brand: "Toyota",
+  speed: 0,
+  accelerate(amount) {
+    this.speed += amount;
+    console.log(`${this.brand} is now going ${this.speed} km/h`);
+  },
+  brake() {
+    this.speed -= 10;
+    console.log(`${this.brand} slowed down to ${this.speed} km/h`);
+  }
+};
+
+car.accelerate(50);
+car.brake();
+
+
+Chaining Methods:
+-----------------
+Use case: Creating fluent, chainable APIs
+
+let ladder = {
+  step: 0,
+  up() { this.step++; return this; },
+  down() { this.step--; return this; },
+  showStep() { console.log(this.step); return this; }
+};
+
+ladder.up().up().down().showStep().down().showStep();
+// shows 1 then 0
+
+
+Using this in Returned Objects:
+-------------------------------
+Use case: Returning this for access to object data
+
+function makeUser() {
+  return {
+    name: "John",
+    ref() {
+      return this;
+    }
+  };
+}
+
+console.log(makeUser().ref().name); // John
