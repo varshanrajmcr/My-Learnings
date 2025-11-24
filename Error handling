@@ -1,0 +1,11 @@
+Error Handling ("try...catch"):
+Use case: Handle runtime errors safely.
+
+try { JSON.parse("bad json"); } catch(e){ console.log("Error!"); }
+
+
+Custom Errors, Extending Error:
+Use case: Create meaningful app-specific errors.
+
+class ValidationError extends Error {}
+throw new ValidationError("Invalid data");
