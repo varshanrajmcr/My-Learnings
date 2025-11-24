@@ -1,0 +1,43 @@
+Document and Resource Loading:
+----------------------------
+JavaScript can detect when HTML and resources are loaded.
+
+DOMContentLoaded -	HTML fully loaded and parsed
+load -	All resources (images, styles) loaded
+beforeunload -	User leaving the page
+unload -	Page unloading completely
+
+Scripts: async and defer:
+------------------------
+<script> tags can load in parallel using async or defer.
+async - As soon as loaded
+defer - After DOM ready
+
+Resource Loading: onload and onerror:
+------------------------------------
+Detect success or failure of loading resources.
+
+let img = document.createElement("img");
+img.src = "pic.jpg";
+
+img.onload = () => alert("Image loaded");
+img.onerror = () => alert("Image failed");
+
+Mutation Observer:
+-------------------
+Allows watching for DOM changes.
+
+Used for:
+Detecting added/removed elements
+Reacting to dynamic DOM changes
+
+Selection and Range:
+--------------------
+Represents user-selected text or custom text ranges.
+
+let sel = window.getSelection();
+console.log(sel.toString());
+
+Used for:
+Custom text highlighting
+Rich text editors
