@@ -1,0 +1,102 @@
+Browser Environment & Specs:
+-----------------------------
+JavaScript runs not only in browsers — it can run in many environments (Node.js, Deno, etc.). The browser environment adds extra features to work with webpages — like window, document, alert(), etc.
+Code:
+alert("Hello Browser!"); 
+console.log(window.innerWidth); 
+
+window is the global object in browsers — contains everything.
+document - represents the webpage (DOM).
+navigator - gives info about browser.
+location - gives current URL.
+Browser adds these as “extras” to JavaScript.
+
+Specs:
+
+ECMAScript (ES) - defines the core JS language.
+DOM (Document Object Model) - defines how JS interacts with HTML.
+BOM (Browser Object Model) - defines browser-related objects (window, navigator, etc.).
+
+DOM tree:
+---------
+The browser converts your HTML into a DOM tree — a structured tree of nodes (elements, text, comments).
+<html>
+  <body>
+    <h1>Hello</h1>
+    <p>World</p>
+  </body>
+</html>
+
+Becomes:
+Document
+  html
+      head
+      body
+          h1
+          p
+
+Note:
+Every tag = Element Node
+Text between tags = Text Node
+The root of everything = document
+
+Walking the DOM:
+----------------
+moving through DOM elements — parent → child → sibling.
+
+let body = document.body;
+
+console.log(body.firstElementChild); // first child
+console.log(body.lastElementChild);  // last child
+console.log(body.parentElement);     // parent node
+console.log(body.previousElementSibling); // previous node
+
+childNodes - list of all child nodes (including text).
+children - only element nodes.
+firstChild / lastChild - first/last node.
+parentNode - go up one level.
+nextSibling / previousSibling - move sideways.
+
+
+Searching Elements:
+------------------
+Find elements in the DOM.
+document.getElementById("myId");
+document.getElementsByClassName("item");
+document.getElementsByTagName("p");
+document.querySelector(".class");
+document.querySelectorAll("div.item");
+
+querySelector() -	First match -	CSS selector
+querySelectorAll() -	NodeList -	All matches
+
+Node Properties: Type, Tag, and Contents:
+----------------------------------------
+Each DOM node has basic info — type, name, and content.
+nodeType ->	1 = element, 3 = text, 8 = comment
+nodeName / tagName ->	Node’s name (uppercase for elements)
+innerHTML	-> HTML inside element
+textContent	-> Text only (no HTML)
+
+Modifying the Document:
+-------------------------
+You can create, remove, or move DOM elements dynamically.
+
+let div = document.createElement("div");
+div.textContent = "Hello!";
+document.body.append(div); // add to page
+
+Styles and Classes:
+------------------
+Can edit element style or class list directly.
+
+let box = document.querySelector(".box");
+box.style.backgroundColor = "lightblue";
+box.classList.add("highlight");
+
+Coordinates:
+------------
+Each element has coordinates relative to the viewport or document.
+
+let rect = elem.getBoundingClientRect();
+console.log(rect.top, rect.left); // element position
