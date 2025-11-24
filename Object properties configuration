@@ -1,0 +1,22 @@
+Object Properties Configuration:
+Use case: Control property behavior.
+
+let user = {};
+Object.defineProperty(user, "name", {value:"John", writable:false});
+
+
+Property Flags and Descriptors:
+Use case: View property attributes.
+
+let desc = Object.getOwnPropertyDescriptor({x:1}, "x");
+console.log(desc.writable); // true
+
+
+Property Getters and Setters:
+Use case: Define computed properties.
+
+let user = {
+  first:"John", last:"Doe",
+  get full(){ return this.first + " " + this.last; }
+};
+console.log(user.full); // John Doe
