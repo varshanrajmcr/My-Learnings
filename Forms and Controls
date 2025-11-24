@@ -1,0 +1,31 @@
+Forms and Controls:
+-------------------
+Form elements have properties and events for user interaction.
+
+Focusing: focus / blur:
+-----------------------
+Triggered when an element gains or loses focus.
+input.addEventListener("focus", () => input.style.background = "lightblue");
+input.addEventListener("blur", () => input.style.background = "");
+
+Events: change, input, cut, copy, paste:
+--------------------------------------
+Used to handle text input and clipboard actions.
+input.addEventListener("input", () => console.log("Typing..."));
+input.addEventListener("change", () => console.log("Value changed"));
+input.addEventListener("copy", () => console.log("Copied!"));
+
+input fires on every keystroke.
+change fires after focus leaves.
+Clipboard events: cut, copy, paste.
+
+Forms: event and method submit:
+------------------------------
+Fires when a form is submitted.
+form.addEventListener("submit", e => {
+  e.preventDefault(); // stop real submission
+  alert("Form data captured!");
+});
+
+Use form.submit() to trigger manually.
+Always prevent default when handling with JS.
