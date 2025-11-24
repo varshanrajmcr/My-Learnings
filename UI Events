@@ -1,0 +1,32 @@
+UI Events:
+---------
+UI events include focus, scroll, resize, input, load, and others triggered by user interface changes.
+scroll - User scrolls
+resize -	Window resizes
+
+Mouse Events:
+--------------
+Triggered when user interacts with mouse or touchpad.
+click -	Single click
+dblclick	- Double click
+mousedown / mouseup -	Press / release mouse button
+
+Moving the Mouse (mouseover/out, mouseenter/leave) -> Track when the mouse enters or leaves an element.
+
+Drag and Drop (with mouse events) -> Browser supports drag-and-drop using dragstart, dragover, drop.
+
+Pointer Events -> Unified events for mouse, touch, and stylus input.
+pointerdown, pointerup, pointermove, pointerenter, pointerleave
+Include properties like pointerId, pointerType (mouse, pen, touch)
+
+Keyboard Events:
+---------------
+Listen for keyboard input using keydown and keyup.
+
+keydown -	When key pressed (repeat fires if held)
+keyup -	When key released
+
+Scrolling:
+----------
+Fired when the page or element is scrolled.
+Optimize scroll handlers (use debounce or requestAnimationFrame to avoid lag).
