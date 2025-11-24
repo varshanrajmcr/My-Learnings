@@ -1,0 +1,47 @@
+Promises:
+Use case: Handle async operations.
+
+new Promise(res => setTimeout(()=>res("done"),1000))
+  .then(console.log);
+
+
+Promises Chaining:
+Use case: Sequence async steps.
+
+Promise.resolve(1)
+  .then(x => x + 1)
+  .then(console.log); // 2
+
+
+Error Handling with Promises:
+Use case: Catch promise rejections.
+
+Promise.reject("fail").catch(console.error);
+
+
+Promise API:
+Use case: Manage multiple promises.
+
+Promise.all([Promise.resolve(1), Promise.resolve(2)])
+  .then(console.log);
+
+
+Promisification:
+Use case: Convert callbacks to promises.
+
+function delay(ms){ return new Promise(res => setTimeout(res, ms)); }
+delay(1000).then(()=>console.log("Done"));
+
+
+Microtasks:
+Use case: Control promise execution order.
+
+Promise.resolve().then(()=>console.log("microtask"));
+console.log("sync");
+
+
+Async/Await:
+Use case: Write async code like sync.
+
+async function load(){ let res = await Promise.resolve("done"); console.log(res); }
+load();
